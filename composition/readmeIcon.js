@@ -1,5 +1,4 @@
 import { desktopIcon } from '../components/desktopIcon.js'
-const  img  = './public/textfile.PNG'
 
 export function readmeIcon() {
     const content = `
@@ -51,6 +50,6 @@ export function readmeIcon() {
     `
 
     return (`
-        ${desktopIcon(img, "Readme", "window1", content )}
+        ${desktopIcon("https://raw.githubusercontent.com/lorapemo/lorapemo/refs/heads/dev/public/textFile.PNG", "Readme", "window1", content )}
     `);
 }
