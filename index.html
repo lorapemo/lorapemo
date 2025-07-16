@@ -1,156 +1,29 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <title>Webpage Desktop</title>
-    <style>
-        /* Desktop styling */
-        #web-desktop {
-            position: relative;
-            width: 100%;
-            height: 100vh;
-            background: #008080; /* Classic desktop blue */
-            overflow: hidden;
-            background-size: 20px 20px;
-            background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
-        }
-        
-        /* Window styling */
-        .window {
-            position: absolute;
-            width: 500px;
-            min-width: 300px;
-            min-height: 200px;
-            background: white;
-            border-radius: 5px;
-            box-shadow: 3px 3px 10px rgba(0,0,0,0.3);
-            display: flex;
-            flex-direction: column;
-            overflow: hidden;
-            resize: both;
-        }
-        
-        .window-header {
-            padding: 8px 12px;
-            background: #222;
-            color: white;
-            cursor: move;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            user-select: none;
-        }
-        
-        .window-title {
-            font-weight: bold;
-        }
-        
-        .window-controls {
-            display: flex;
-            gap: 8px;
-        }
-        
-        .window-control {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            cursor: pointer;
-        }
-        
-        .close { background: #ff5f56; }
-        .minimize { background: #ffbd2e; }
-        .maximize { background: #27c93f; }
-        
-        .window-content {
-            flex: 1;
-            padding: 15px;
-            overflow: auto;
-        }
-        
-        /* Special styling for iframe windows */
-        .window-iframe .window-content {
-            padding: 0;
-        }
-        
-        .window-iframe iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-        
-        /* Taskbar styling */
-        #taskbar {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 40px;
-            background: rgba(0,0,0,0.7);
-            display: flex;
-            align-items: center;
-            padding: 0 10px;
-            gap: 10px;
-            z-index: 1000;
-        }
-        
-        .taskbar-item {
-            color: white;
-            padding: 5px 10px;
-            cursor: pointer;
-            border-radius: 3px;
-        }
-        
-        .taskbar-item:hover {
-            background: rgba(255,255,255,0.2);
-        }
-        
-        /* Icon styling */
-        #desktop-icons {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            padding: 20px;
-            position: absolute;
-            z-index: 1;
-        }
-        
-        .desktop-icon {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            width: 70px;
-            cursor: pointer;
-            text-align: center;
-            color: white;
-            text-shadow: 1px 1px 2px black;
-        }
-        
-        .desktop-icon img {
-            width: 40px;
-            height: 40px;
-            margin-bottom: 5px;
-        }
-    </style>
+    <title>LORAPEMO</title>
+    <link rel="stylesheet" href="index.css">
 </head>
-<body>
+
+<body class="overflow-hidden">
     <div id="web-desktop">
         <!-- Desktop icons -->
         <div id="desktop-icons">
-            <div class="desktop-icon" data-window="window1">
-                <img src="https://cdn-icons-png.flaticon.com/512/2965/2965300.png" alt="Document">
-                <span>Document 1</span>
-            </div>
+
             <div class="desktop-icon" data-window="window2">
                 <img src="https://cdn-icons-png.flaticon.com/512/2965/2965278.png" alt="Document">
                 <span>Document 2</span>
             </div>
             <div class="desktop-icon" id="wikipedia-icon">
-                <img src="https://upload.wikimedia.org/wikipedia/en/thumb/8/80/Wikipedia-logo-v2.svg/1200px-Wikipedia-logo-v2.svg.png" alt="Wikipedia">
+                <img src="https://upload.wikimedia.org/wikipedia/en/thumb/8/80/Wikipedia-logo-v2.svg/1200px-Wikipedia-logo-v2.svg.png"
+                    alt="Wikipedia">
                 <span>Wikipedia</span>
             </div>
         </div>
-        
+
         <!-- Windows will be created here dynamically -->
-        
+
         <!-- Taskbar -->
         <div id="taskbar">
             <div class="taskbar-item" id="start-btn">Start</div>
@@ -161,19 +34,20 @@
     <!-- jQuery and jQuery UI for drag/drop functionality -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js"></script>
-    
+    <script type="module" src="index.js"></script>
     <script>
+
         // Counter for window IDs
         let windowCounter = 0;
-        
+
         // Create a new window
         function createWindow(title, content, icon = null, isIframe = false) {
             windowCounter++;
             const windowId = `window-${windowCounter}`;
-            
+
             // Add iframe class if needed
             const iframeClass = isIframe ? 'window-iframe' : '';
-            
+
             // Create window HTML
             const windowHtml = `
                 <div class="window ${iframeClass}" id="${windowId}">
@@ -188,17 +62,17 @@
                     <div class="window-content">${content}</div>
                 </div>
             `;
-            
+
             // Add to desktop
             $('#web-desktop').append(windowHtml);
-            
+
             // Make draggable
             $(`#${windowId}`).draggable({
                 handle: '.window-header',
                 containment: '#web-desktop',
                 stack: '.window'
             });
-            
+
             // Make resizable (except for iframe windows)
             if (!isIframe) {
                 $(`#${windowId}`).resizable({
@@ -206,11 +80,11 @@
                     minHeight: 200
                 });
             }
-            
+
             // Window controls
             $(`#${windowId} .close`).click(() => $(`#${windowId}`).remove());
             $(`#${windowId} .minimize`).click(() => $(`#${windowId}`).hide());
-            $(`#${windowId} .maximize`).click(function() {
+            $(`#${windowId} .maximize`).click(function () {
                 const window = $(this).closest('.window');
                 if (window.hasClass('maximized')) {
                     window.removeClass('maximized').css({
@@ -228,7 +102,7 @@
                     });
                 }
             });
-            
+
             // Add to taskbar
             const taskbarItem = $(`<div class="taskbar-item window-taskbar-item" data-window="${windowId}">${title}</div>`);
             taskbarItem.click(() => {
@@ -240,15 +114,15 @@
                 }
             });
             $('#taskbar').append(taskbarItem);
-            
+
             return windowId;
         }
-        
+
         // Desktop icon click handlers
-        $('.desktop-icon').click(function() {
+        $('.desktop-icon').click(function () {
             const windowType = $(this).data('window');
             let title, content;
-            
+
             if (windowType === 'window1') {
                 title = "Document 1";
                 content = "<h2>Document 1 Content</h2><p>This is the content of document 1. You can put anything here - text, forms, even iframes with other webpages.</p>";
@@ -259,20 +133,21 @@
                 createWindow(title, content);
             }
         });
-        
+
         // Wikipedia icon click handler
-        $('#wikipedia-icon').click(function() {
+        $('#wikipedia-icon').click(function () {
             const title = "Wikipedia";
             const content = `<iframe src="https://cfd7e7ee8767.ngrok-free.app"></iframe>`;
             createWindow(title, content, null, true);
         });
-        
+
         // Start button (could add a start menu)
         $('#start-btn').click(() => {
             alert('Start menu would appear here');
         });
-        
-       
+
+
     </script>
 </body>
+
 </html>
