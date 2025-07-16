@@ -1,5 +1,5 @@
 import { desktopIcon } from '../components/desktopIcon.js'
-const  img  = '/public/text-file.png'
+const  img  = './public/textfile.PNG'
 
 export function readmeIcon() {
     const content = `
