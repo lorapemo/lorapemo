@@ -70,6 +70,17 @@
             overflow: auto;
         }
         
+        /* Special styling for iframe windows */
+        .window-iframe .window-content {
+            padding: 0;
+        }
+        
+        .window-iframe iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
         /* Taskbar styling */
         #taskbar {
             position: fixed;
@@ -136,6 +147,10 @@
                 <img src="https://cdn-icons-png.flaticon.com/512/2965/2965278.png" alt="Document">
                 <span>Document 2</span>
             </div>
+            <div class="desktop-icon" id="wikipedia-icon">
+                <img src="https://upload.wikimedia.org/wikipedia/en/thumb/8/80/Wikipedia-logo-v2.svg/1200px-Wikipedia-logo-v2.svg.png" alt="Wikipedia">
+                <span>Wikipedia</span>
+            </div>
         </div>
         
         <!-- Windows will be created here dynamically -->
@@ -156,13 +171,16 @@
         let windowCounter = 0;
         
         // Create a new window
-        function createWindow(title, content, icon = null) {
+        function createWindow(title, content, icon = null, isIframe = false) {
             windowCounter++;
             const windowId = `window-${windowCounter}`;
             
+            // Add iframe class if needed
+            const iframeClass = isIframe ? 'window-iframe' : '';
+            
             // Create window HTML
             const windowHtml = `
-                <div class="window" id="${windowId}">
+                <div class="window ${iframeClass}" id="${windowId}">
                     <div class="window-header">
                         <div class="window-title">${title}</div>
                         <div class="window-controls">
@@ -184,6 +202,14 @@
                 containment: '#web-desktop',
                 stack: '.window'
             });
+            
+            // Make resizable (except for iframe windows)
+            if (!isIframe) {
+                $(`#${windowId}`).resizable({
+                    minWidth: 300,
+                    minHeight: 200
+                });
+            }
             
             // Window controls
             $(`#${windowId} .close`).click(() => $(`#${windowId}`).remove());
@@ -230,12 +256,19 @@
             if (windowType === 'window1') {
                 title = "Document 1";
                 content = "<h2>Document 1 Content</h2><p>This is the content of document 1. You can put anything here - text, forms, even iframes with other webpages.</p>";
+                createWindow(title, content);
             } else if (windowType === 'window2') {
                 title = "Document 2";
                 content = "<h2>Document 2 Content</h2><p>Different content here. You could load this via AJAX from your server.</p>";
+                createWindow(title, content);
             }
-            
-            createWindow(title, content);
+        });
+        
+        // Wikipedia icon click handler
+        $('#wikipedia-icon').click(function() {
+            const title = "Wikipedia";
+            const content = `<iframe src="https://www.wikipedia.org/"></iframe>`;
+            createWindow(title, content, null, true);
         });
         
         // Start button (could add a start menu)
@@ -243,15 +276,7 @@
             alert('Start menu would appear here');
         });
         
-        // Example of opening a window on page load
-        $(document).ready(() => {
-            createWindow(
-                "Welcome", 
-                "<h2>Welcome to Web Desktop</h2>" +
-                "<p>Click the desktop icons to open new windows. You can drag, resize, minimize and close them.</p>" +
-                "<p>Try opening multiple windows and arranging them as you like!</p>"
-            );
-        });
+       
     </script>
 </body>
 </html>
