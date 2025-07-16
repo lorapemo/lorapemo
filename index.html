@@ -4,6 +4,7 @@
 <head>
     <title>LORAPEMO</title>
     <link rel="stylesheet" href="index.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
 <body class="overflow-hidden">
@@ -34,89 +35,13 @@
     <!-- jQuery and jQuery UI for drag/drop functionality -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script type="module" src="index.js"></script>
-    <script>
 
-        // Counter for window IDs
+    <script>
         let windowCounter = 0;
 
         // Create a new window
-        function createWindow(title, content, icon = null, isIframe = false) {
-            windowCounter++;
-            const windowId = `window-${windowCounter}`;
-
-            // Add iframe class if needed
-            const iframeClass = isIframe ? 'window-iframe' : '';
-
-            // Create window HTML
-            const windowHtml = `
-                <div class="window ${iframeClass}" id="${windowId}">
-                    <div class="window-header">
-                        <div class="window-title">${title}</div>
-                        <div class="window-controls">
-                            <div class="window-control minimize"></div>
-                            <div class="window-control maximize"></div>
-                            <div class="window-control close"></div>
-                        </div>
-                    </div>
-                    <div class="window-content">${content}</div>
-                </div>
-            `;
-
-            // Add to desktop
-            $('#web-desktop').append(windowHtml);
-
-            // Make draggable
-            $(`#${windowId}`).draggable({
-                handle: '.window-header',
-                containment: '#web-desktop',
-                stack: '.window'
-            });
-
-            // Make resizable (except for iframe windows)
-            if (!isIframe) {
-                $(`#${windowId}`).resizable({
-                    minWidth: 300,
-                    minHeight: 200
-                });
-            }
-
-            // Window controls
-            $(`#${windowId} .close`).click(() => $(`#${windowId}`).remove());
-            $(`#${windowId} .minimize`).click(() => $(`#${windowId}`).hide());
-            $(`#${windowId} .maximize`).click(function () {
-                const window = $(this).closest('.window');
-                if (window.hasClass('maximized')) {
-                    window.removeClass('maximized').css({
-                        width: '',
-                        height: '',
-                        top: '',
-                        left: ''
-                    });
-                } else {
-                    window.addClass('maximized').css({
-                        width: 'calc(100% - 20px)',
-                        height: 'calc(100% - 60px)',
-                        top: '10px',
-                        left: '10px'
-                    });
-                }
-            });
-
-            // Add to taskbar
-            const taskbarItem = $(`<div class="taskbar-item window-taskbar-item" data-window="${windowId}">${title}</div>`);
-            taskbarItem.click(() => {
-                const window = $(`#${windowId}`);
-                if (window.is(':visible')) {
-                    window.hide();
-                } else {
-                    window.show();
-                }
-            });
-            $('#taskbar').append(taskbarItem);
-
-            return windowId;
-        }
 
         // Desktop icon click handlers
         $('.desktop-icon').click(function () {
@@ -137,7 +62,7 @@
         // Wikipedia icon click handler
         $('#wikipedia-icon').click(function () {
             const title = "Wikipedia";
-            const content = `<iframe src="https://cfd7e7ee8767.ngrok-free.app"></iframe>`;
+            const content = `<iframe src="https://wikipedia.com"></iframe>`;
             createWindow(title, content, null, true);
         });
 

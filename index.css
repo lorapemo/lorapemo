@@ -2,15 +2,17 @@
             position: relative;
             width: 100%;
             height: 100vh;
-            background: #008080; /* Classic desktop blue */
+            background: #008080;
+            /* Classic desktop blue */
             overflow: hidden;
             background-size: 20px 20px;
             background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
         }
-        .overflow-hidden{
+
+        .overflow-hidden {
             overflow: hidden;
         }
-        
+
         /* Window styling */
         .window {
             position: absolute;
@@ -19,13 +21,15 @@
             min-height: 200px;
             background: white;
             border-radius: 5px;
-            box-shadow: 3px 3px 10px rgba(0,0,0,0.3);
+            box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
             display: flex;
             flex-direction: column;
             overflow: hidden;
             resize: both;
+            z-index: 100;
+            right: 0px;
         }
-        
+
         .window-header {
             padding: 8px 12px;
             background: #222;
@@ -36,44 +40,41 @@
             align-items: center;
             user-select: none;
         }
-        
+
         .window-title {
             font-weight: bold;
         }
-        
+
         .window-controls {
             display: flex;
             gap: 8px;
         }
-        
+
         .window-control {
             width: 12px;
             height: 12px;
             border-radius: 50%;
             cursor: pointer;
         }
-        
-        .close { background: #ff5f56; }
-        .minimize { background: #ffbd2e; }
-        .maximize { background: #27c93f; }
-        
+
+        .close {
+            background: #ff5f56;
+        }
+
+        .minimize {
+            background: #ffbd2e;
+        }
+
+        .maximize {
+            background: #27c93f;
+        }
+
         .window-content {
             flex: 1;
             padding: 15px;
             overflow: auto;
         }
-        
-        /* Special styling for iframe windows */
-        .window-iframe .window-content {
-            padding: 0;
-        }
-        
-        .window-iframe iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-        
+
         /* Taskbar styling */
         #taskbar {
             position: fixed;
@@ -81,25 +82,25 @@
             left: 0;
             width: 100%;
             height: 40px;
-            background: rgba(0,0,0,0.7);
+            background: rgba(0, 0, 0, 0.7);
             display: flex;
             align-items: center;
             padding: 0 10px;
             gap: 10px;
             z-index: 1000;
         }
-        
+
         .taskbar-item {
             color: white;
             padding: 5px 10px;
             cursor: pointer;
             border-radius: 3px;
         }
-        
+
         .taskbar-item:hover {
-            background: rgba(255,255,255,0.2);
+            background: rgba(255, 255, 255, 0.2);
         }
-        
+
         /* Icon styling */
         #desktop-icons {
             display: flex;
@@ -109,7 +110,7 @@
             position: absolute;
             z-index: 1;
         }
-        
+
         .desktop-icon {
             display: flex;
             flex-direction: column;
@@ -120,7 +121,7 @@
             color: white;
             text-shadow: 1px 1px 2px black;
         }
-        
+
         .desktop-icon img {
             width: 40px;
             height: 40px;

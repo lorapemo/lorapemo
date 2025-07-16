@@ -1,12 +1,13 @@
-export function desktopIcon(img, title, dataWindow) {
+import { handleWindow } from "../utilities/handleWindow.js"
+
+export function desktopIcon(img, title, dataWindow, content = "Hello World") {
+    $(document).on('click', '.desktop-icon', function () {
+        handleWindow(title, content)
+    });
     return (`
-        <div class="desktop-icon" data-window="${dataWindow}">
-        <img src="${img}" alt="Document">
-        <span>${title}</span>
+        <div class="desktop-icon" data-window="${dataWindow}" >
+            <img src="${img}" alt="Document">
+            <span>${title}</span>
         </div>
         `);
 }
-        // <div class="desktop-icon" data-window="window1">
-        // <img src="https://cdn-icons-png.flaticon.com/512/2965/2965300.png" alt="Document">
-        // <span>Document 1</span>
-        // </div>
