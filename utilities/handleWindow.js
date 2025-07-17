@@ -1,10 +1,5 @@
-export function handleWindow(title, content, icon = null) {
-    try {
-        windowCounter++;
-        const windowId = `window-${windowCounter}`;
-
-        // Create window HTML
-        const windowHtml = `
+function handleContent(title, windowId, content, isIFrame) {
+    var basic_window_html = `
                 <div class="window" id="${windowId}">
                     <div class="window-header">
                         <div class="window-title">${title}</div>
@@ -14,9 +9,29 @@ export function handleWindow(title, content, icon = null) {
                             <div class="window-control close"></div>
                         </div>
                     </div>
-                    <div class="window-content">${content}</div>
-                </div>
-            `;
+
+                    `
+    if (isIFrame) {
+        basic_window_html += `
+            <div id="${windowId}-content" class="window-iframe">${content}</div>
+            </div>
+            `
+        return basic_window_html
+    }
+    basic_window_html += `
+            <div id="${windowId}-content" class="window-content">${content}</div>
+            </div>
+            `
+    return basic_window_html
+}
+
+export function handleWindow(title, content, isIFrame = false) {
+    try {
+        windowCounter++;
+        const windowId = `${title}-window`;
+
+        // Create window HTML
+        const windowHtml = handleContent(title, windowId, content, isIFrame)
 
         // Add to desktop
         $('#web-desktop').append(windowHtml);

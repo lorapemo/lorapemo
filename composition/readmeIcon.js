@@ -1,8 +1,8 @@
 import { desktopIcon } from '../components/desktopIcon.js'
-
+import { handleWindow } from "../utilities/handleWindow.js"
 export function readmeIcon() {
     const content = `
-        <div class="container mt-5">
+        <div class="container">
         <div class="accordion" id="myAccordion">
             <!-- Item 1 -->
             <div class="accordion-item">
@@ -70,8 +70,20 @@ export function readmeIcon() {
         </div>
     </div>
     `
-    
+
+    const title = "Readme"
+
+    $(document).ready(() => {
+        const windowId = handleWindow(title, content)
+        const window_to_maximize = document.getElementById(windowId);
+        $(`#${windowId}`).addClass('maximized').css({
+                    width: 'calc(100% - 20px)',
+                    height: 'calc(100% - 60px)',
+                    top: '10px',
+                    left: '10px'
+                });
+    })
     return (`
-        ${desktopIcon("https://raw.githubusercontent.com/lorapemo/lorapemo/refs/heads/dev/public/textFile.PNG", "Readme", "readme_icon", content )}
+        ${desktopIcon("https://raw.githubusercontent.com/lorapemo/lorapemo/refs/heads/dev/public/textFile.PNG", title, "readme_icon", content)}
     `);
 }
