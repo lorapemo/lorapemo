@@ -1,6 +1,6 @@
-import { readmeIcon } from './composition/readmeIcon.js';
-import { reactFolderIcon } from './composition/reactFolderIcon.js';
+import { readme } from './composition/readme.js';
+import { reactFolder } from './composition/reactFolder.js';
 document.getElementById("desktop-icons").innerHTML = `
-    ${readmeIcon()}
-    ${reactFolderIcon()}
+    ${readme()}
+    ${reactFolder()}
     `

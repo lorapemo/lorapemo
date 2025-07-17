@@ -1,6 +1,6 @@
 import { desktopIcon } from '../components/desktopIcon.js'
 import { handleWindow } from "../utilities/handleWindow.js"
-export function readmeIcon() {
+export function readme() {
     const content = `
         <div class="container">
         <div class="accordion" id="myAccordion">
@@ -75,7 +75,7 @@ export function readmeIcon() {
 
     $(document).ready(() => {
         const windowId = handleWindow(title, content)
-        const window_to_maximize = document.getElementById(windowId);
+        
         $(`#${windowId}`).addClass('maximized').css({
                     width: 'calc(100% - 20px)',
                     height: 'calc(100% - 60px)',
