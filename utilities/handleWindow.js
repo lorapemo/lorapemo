@@ -27,7 +27,8 @@ function handleContent(title, windowId, content, isIFrame) {
 
 export function handleWindow(title, content, isIFrame = false, dataWindow) {
     try {
-        const windowId = `${dataWindow}-window`;
+        windowCounter++
+        const windowId = `${dataWindow}-window-${windowCounter}`;
 
         // Create window HTML
         const windowHtml = handleContent(title, windowId, content, isIFrame)
