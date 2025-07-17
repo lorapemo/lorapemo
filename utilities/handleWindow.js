@@ -1,9 +1,10 @@
 export function handleWindow(title, content, icon = null) {
-    windowCounter++;
-    const windowId = `window-${windowCounter}`;    
+    try {
+        windowCounter++;
+        const windowId = `window-${windowCounter}`;
 
-    // Create window HTML
-    const windowHtml = `
+        // Create window HTML
+        const windowHtml = `
                 <div class="window" id="${windowId}">
                     <div class="window-header">
                         <div class="window-title">${title}</div>
@@ -17,54 +18,58 @@ export function handleWindow(title, content, icon = null) {
                 </div>
             `;
 
-    // Add to desktop
-    $('#web-desktop').append(windowHtml);
+        // Add to desktop
+        $('#web-desktop').append(windowHtml);
 
-    // Make draggable
-    $(`#${windowId}`).draggable({
-        handle: '.window-header',
-        containment: '#web-desktop',
-        stack: '.window'
-    });
+        // Make draggable
+        $(`#${windowId}`).draggable({
+            handle: '.window-header',
+            containment: '#web-desktop',
+            stack: '.window'
+        });
 
-    // Window controls
-    $(`#${windowId} .close`).click(() => {
-        $(`#${windowId}`).remove()
-        if ($(`#taskbar .taskbar-item[data-window="${windowId}"]`).length) {
-            $(`#taskbar .taskbar-item[data-window="${windowId}"]`).remove();
-        }
-    });
-    $(`#${windowId} .minimize`).click(() => $(`#${windowId}`).hide());
-    $(`#${windowId} .maximize`).click(function () {
-        const window = $(this).closest('.window');
-        if (window.hasClass('maximized')) {
-            window.removeClass('maximized').css({
-                width: '',
-                height: '',
-                top: '',
-                left: ''
-            });
-        } else {
-            window.addClass('maximized').css({
-                width: 'calc(100% - 20px)',
-                height: 'calc(100% - 60px)',
-                top: '10px',
-                left: '10px'
-            });
-        }
-    });
+        // Window controls
+        $(`#${windowId} .close`).click(() => {
+            $(`#${windowId}`).remove()
+            if ($(`#taskbar .taskbar-item[data-window="${windowId}"]`).length) {
+                $(`#taskbar .taskbar-item[data-window="${windowId}"]`).remove();
+            }
+        });
+        $(`#${windowId} .minimize`).click(() => $(`#${windowId}`).hide());
+        $(`#${windowId} .maximize`).click(function () {
+            const window = $(this).closest('.window');
+            if (window.hasClass('maximized')) {
+                window.removeClass('maximized').css({
+                    width: '',
+                    height: '',
+                    top: '',
+                    left: ''
+                });
+            } else {
+                window.addClass('maximized').css({
+                    width: 'calc(100% - 20px)',
+                    height: 'calc(100% - 60px)',
+                    top: '10px',
+                    left: '10px'
+                });
+            }
+        });
 
-    // Add to taskbar
-    const taskbarItem = $(`<div class="taskbar-item window-taskbar-item" data-window="${windowId}">${title}</div>`);
-    taskbarItem.click(() => {
-        const window = $(`#${windowId}`);
-        if (window.is(':visible')) {
-            window.hide();
-        } else {
-            window.show();
-        }
-    });
-    $('#taskbar').append(taskbarItem);
+        // Add to taskbar
+        const taskbarItem = $(`<div class="taskbar-item window-taskbar-item" data-window="${windowId}">${title}</div>`);
+        taskbarItem.click(() => {
+            const window = $(`#${windowId}`);
+            if (window.is(':visible')) {
+                window.hide();
+            } else {
+                window.show();
+            }
+        });
+        $('#taskbar').append(taskbarItem);
 
-    return windowId;
+        return windowId;
+    } catch (err) {
+        console.log("Errors!:" + err)
+    }
+
 }
