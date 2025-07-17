@@ -127,3 +127,10 @@
             height: 40px;
             margin-bottom: 5px;
         }
+
+        #overview-accordion.accordion-list{
+            margin-top: -30px;
+        }
+        .accordion-list{
+            margin-bottom: 0px;
+        }

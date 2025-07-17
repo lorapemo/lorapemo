@@ -9,12 +9,23 @@ export function readmeIcon() {
             <div class="accordion-item">
                 <h2 class="accordion-header">
                     <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
-                        Accordion Item #1
+                        Overview
                     </button>
                 </h2>
                 <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#myAccordion">
                     <div class="accordion-body">
-                        This is the first item's accordion body. It is shown by default.
+                        <p>The objective of this project is to:</p><br>
+                        <ol id="overview-accordion" class="accordion-list">    
+                            <li>
+                                Test the Github Pages capabilities 
+                            </li>
+                            <li>
+                                Test my own capabilities using JS and HTML
+                            </li>
+                            <li>
+                                Create a treelink-like portfolios for the <a href="">demos</a> I've created for companies and other stuff I've done.
+                            </li>
+                        </ol>    
                     </div>
                 </div>
             </div>
@@ -23,12 +34,22 @@ export function readmeIcon() {
             <div class="accordion-item">
                 <h2 class="accordion-header">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
-                        Accordion Item #2
+                        <span>Why use Github Pages</span>?
                     </button>
                 </h2>
                 <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#myAccordion">
                     <div class="accordion-body">
-                        This is the second item's accordion body. It is hidden by default.
+                        <ol class="accordion-list">    
+                            <li>
+                                No need for DNS 
+                            </li>
+                            <li>
+                                No need to pay for hosting (for static websites)
+                            </li>
+                            <li>
+                                No need to pay for storage
+                            </li>
+                        </ol>    
                     </div>
                 </div>
             </div>
@@ -37,19 +58,20 @@ export function readmeIcon() {
             <div class="accordion-item">
                 <h2 class="accordion-header">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree">
-                        Accordion Item #3
+                        About the demos...
                     </button>
                 </h2>
                 <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#myAccordion">
                     <div class="accordion-body">
-                        This is the third item's accordion body. It is hidden by default.
+                        <p>You can test them here!</p>
+                        <p>Just close this window using the red button on the top-left</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     `
-
+    
     return (`
         ${desktopIcon(img, "Readme", "window1", content )}
     `);

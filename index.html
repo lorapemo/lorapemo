@@ -9,26 +9,12 @@
 
 <body class="overflow-hidden">
     <div id="web-desktop">
-        <!-- Desktop icons -->
-        <div id="desktop-icons">
+        
+        <div id="desktop-icons"></div>
 
-            <div class="desktop-icon" data-window="window2">
-                <img src="https://cdn-icons-png.flaticon.com/512/2965/2965278.png" alt="Document">
-                <span>Document 2</span>
-            </div>
-            <div class="desktop-icon" id="wikipedia-icon">
-                <img src="https://upload.wikimedia.org/wikipedia/en/thumb/8/80/Wikipedia-logo-v2.svg/1200px-Wikipedia-logo-v2.svg.png"
-                    alt="Wikipedia">
-                <span>Wikipedia</span>
-            </div>
-        </div>
-
-        <!-- Windows will be created here dynamically -->
-
-        <!-- Taskbar -->
+        <!-- Will make task bar it's own component -->
         <div id="taskbar">
             <div class="taskbar-item" id="start-btn">Start</div>
-            <!-- Open windows will appear here -->
         </div>
     </div>
 
@@ -39,26 +25,6 @@
     <script type="module" src="index.js"></script>
 
     <script>
-        let windowCounter = 0;
-
-        // Create a new window
-
-        // Desktop icon click handlers
-        $('.desktop-icon').click(function () {
-            const windowType = $(this).data('window');
-            let title, content;
-
-            if (windowType === 'window1') {
-                title = "Document 1";
-                content = "<h2>Document 1 Content</h2><p>This is the content of document 1. You can put anything here - text, forms, even iframes with other webpages.</p>";
-                createWindow(title, content);
-            } else if (windowType === 'window2') {
-                title = "Document 2";
-                content = "<h2>Document 2 Content</h2><p>Different content here. You could load this via AJAX from your server.</p>";
-                createWindow(title, content);
-            }
-        });
-
         // Wikipedia icon click handler
         $('#wikipedia-icon').click(function () {
             const title = "Wikipedia";
@@ -68,7 +34,7 @@
 
         // Start button (could add a start menu)
         $('#start-btn').click(() => {
-            alert('Start menu would appear here');
+            alert('I have not implemented this yet!');
         });
 
 
