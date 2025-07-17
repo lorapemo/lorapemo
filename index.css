@@ -27,7 +27,8 @@
             overflow: hidden;
             resize: both;
             z-index: 100;
-            right: 0px;
+            top:10px;
+            right: 10px;
         }
 
         .window-header {
@@ -128,6 +129,10 @@
             margin-bottom: 5px;
         }
 
+        .icon-title{
+            max-width: 100%;
+        }
+
         #overview-accordion.accordion-list {
             margin-top: -30px;
         }
@@ -136,7 +141,7 @@
             margin-bottom: 0px;
         }
 
-        #React-window-content {
+        .folder-window-content {
             display: flex;
             flex-direction: row;
         }

@@ -19,16 +19,15 @@ function handleContent(title, windowId, content, isIFrame) {
         return basic_window_html
     }
     basic_window_html += `
-            <div id="${windowId}-content" class="window-content">${content}</div>
+            <div id="${windowId}-content" class="window-content folder-window-content">${content}</div>
             </div>
             `
     return basic_window_html
 }
 
-export function handleWindow(title, content, isIFrame = false) {
+export function handleWindow(title, content, isIFrame = false, dataWindow) {
     try {
-        windowCounter++;
-        const windowId = `${title}-window`;
+        const windowId = `${dataWindow}-window`;
 
         // Create window HTML
         const windowHtml = handleContent(title, windowId, content, isIFrame)
