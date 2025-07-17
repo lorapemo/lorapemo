@@ -72,6 +72,6 @@ export function readmeIcon() {
     `
     
     return (`
-        ${desktopIcon("https://raw.githubusercontent.com/lorapemo/lorapemo/refs/heads/dev/public/textFile.PNG", "Readme", "window1", content )}
+        ${desktopIcon("https://raw.githubusercontent.com/lorapemo/lorapemo/refs/heads/dev/public/textFile.PNG", "Readme", "readme_icon", content )}
     `);
 }
