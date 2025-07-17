@@ -5,7 +5,7 @@ import { wikipedia } from "./wikipedia.js";
 export function toDoFolder() {
     const content = `
     ${toDoReadme()}
-    ${wikipedia()}
+    ${wikipedia("toDoFolder")}
     `
 
     return (
