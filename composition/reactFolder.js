@@ -1,5 +1,5 @@
 import { desktopIcon } from '../components/desktopIcon.js'
-import { toDoFolder } from './TodoFolder.js'
+import { toDoFolder } from './toDoFolder.js'
 import { pokeListFolder } from './pokeListFolder.js'
 
 export function reactFolder() {
