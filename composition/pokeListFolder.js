@@ -5,7 +5,7 @@ import { wikipedia } from "./wikipedia.js";
 export function pokeListFolder(){
     const content = `
         ${pokeListReadme()}
-        ${wikipedia()}
+        ${wikipedia("pokeListFolder")}
     `
     
     return (

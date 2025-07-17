@@ -7,7 +7,7 @@ export function pokeListReadme() {
 
     return (
         `
-        ${desktopIcon("https://raw.githubusercontent.com/lorapemo/lorapemo/refs/heads/dev/public/textFile.PNG", title, "readme_icon", content)}   
+        ${desktopIcon("https://raw.githubusercontent.com/lorapemo/lorapemo/refs/heads/dev/public/textFile.PNG", title, "pokelist_readme_icon", content)}   
         `
     )
 }
