@@ -25,7 +25,7 @@ function handleContent(title, windowId, content, isIFrame) {
     return basic_window_html
 }
 
-export function handleWindow(title, content, isIFrame = false, dataWindow, maximizedByDefault = false) {
+export function handleWindow({title, content, isIFrame = false, dataWindow, maximizedByDefault = false}) {
     try {
         windowCounter++
         const windowId = `${dataWindow}-window-${windowCounter}`;

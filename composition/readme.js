@@ -1,5 +1,5 @@
 import { desktopIcon } from '../components/desktopIcon.js'
-import { handleWindow } from "../utilities/handleWindow.js"
+import { openWindowOnPageLoad } from '../utilities/openWindowOnPageLoad.js'
 export function readme() {
     const content = `
         <div class="container">
@@ -72,22 +72,15 @@ export function readme() {
     `
 
     const title = "Readme"
+    const dataWindow= "readme_icon"
 
-    $(document).ready(() => {
-        const windowId = handleWindow(title, content)
-        
-        $(`#${windowId}`).addClass('maximized').css({
-                    width: 'calc(100% - 20px)',
-                    height: 'calc(100% - 60px)',
-                    top: '10px',
-                    left: '10px'
-                });
-    })
+    openWindowOnPageLoad({title: title, dataWindow: dataWindow, content: content, maximizedByDefault:true})
+
     return (`
         ${desktopIcon({
             img: "https://raw.githubusercontent.com/lorapemo/lorapemo/refs/heads/dev/public/textFile.PNG", 
             title: title, 
-            dataWindow: "readme_icon", 
+            dataWindow: dataWindow, 
             content: content})}
     `);
 }
