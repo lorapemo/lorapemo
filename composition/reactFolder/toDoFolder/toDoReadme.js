@@ -1,4 +1,4 @@
-import { desktopIcon } from "../components/desktopIcon.js";
+import { desktopIcon } from "../../../components/desktopIcon.js";
 
 export function toDoReadme() {
     const content = `

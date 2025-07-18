@@ -1,6 +1,6 @@
-import { desktopIcon } from "../components/desktopIcon.js";
-import { pokeListReadme } from "./pokeListReadme.js";
-import { wikipedia } from "./wikipedia.js";
+import { desktopIcon } from "../../components/desktopIcon.js";
+import { pokeListReadme } from "./pokeListFolder/pokeListReadme.js";
+import { wikipedia } from "../wikipedia.js";
 
 export function pokeListFolder(){
     const content = `

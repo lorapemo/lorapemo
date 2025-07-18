@@ -1,6 +1,6 @@
-import { desktopIcon } from "../components/desktopIcon.js";
-import { toDoReadme } from "./toDoReadme.js";
-import { wikipedia } from "./wikipedia.js";
+import { desktopIcon } from "../../components/desktopIcon.js";
+import { toDoReadme } from "./toDoFolder/toDoReadme.js";
+import { wikipedia } from "../wikipedia.js";
 
 export function toDoFolder() {
     const content = `
