@@ -1,6 +1,7 @@
 import { desktopIcon } from '../components/desktopIcon.js'
 import { toDoFolder } from './reactFolder/toDoFolder.js'
 import { pokeListFolder } from './reactFolder/pokeListFolder.js'
+import { IMAGES } from '../utilities/constants.js'
 
 export function reactFolder() {
     const content = `
@@ -11,7 +12,7 @@ export function reactFolder() {
     return (
         `
         ${desktopIcon({
-            img: "https://raw.githubusercontent.com/lorapemo/lorapemo/refs/heads/dev/public/reactFolder.png", 
+            img: IMAGES.REACT_FOLDER, 
             title: "React", 
             dataWindow: "react_folder_icon", 
             content: content

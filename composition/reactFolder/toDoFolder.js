@@ -1,6 +1,7 @@
 import { desktopIcon } from "../../components/desktopIcon.js";
 import { toDoReadme } from "./toDoFolder/toDoReadme.js";
 import { wikipedia } from "../wikipedia.js";
+import { IMAGES } from "../../utilities/constants.js";
 
 export function toDoFolder() {
     const content = `
@@ -11,7 +12,7 @@ export function toDoFolder() {
     return (
         `
         ${desktopIcon({
-            img: "https://raw.githubusercontent.com/lorapemo/lorapemo/refs/heads/dev/public/reactFolder.png",
+            img: IMAGES.REACT_FOLDER,
             title: "ToDo", 
             dataWindow: "to_do_folder_icon", 
             content: content

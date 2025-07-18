@@ -1,4 +1,5 @@
 import { desktopIcon } from "../../../components/desktopIcon.js";
+import { IMAGES } from "../../../utilities/constants.js";
 
 export function toDoReadme() {
     const content = `
@@ -8,7 +9,7 @@ export function toDoReadme() {
     return (
         `
         ${desktopIcon({
-            img:"https://raw.githubusercontent.com/lorapemo/lorapemo/refs/heads/dev/public/textFile.PNG", 
+            img: IMAGES.TEXT_FILE,
             title: "Readme", 
             dataWindow: "to_do_readme_icon", 
             content: content})}

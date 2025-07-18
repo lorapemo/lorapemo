@@ -1,4 +1,5 @@
 import { desktopIcon } from "../../../components/desktopIcon.js"
+import { IMAGES } from "../../../utilities/constants.js"
 
 export function pokeList(parent) {
     const content = `<iframe src="https://blueaxe-test-07-025.onrender.com/"></iframe>`
@@ -7,7 +8,7 @@ export function pokeList(parent) {
     return (
         `
         ${desktopIcon({
-            img: "https://raw.githubusercontent.com/lorapemo/lorapemo/refs/heads/dev/public/React.png", 
+            img: IMAGES.REACT, 
             title: "PokeList", 
             dataWindow: dataWindow, 
             content: content, 

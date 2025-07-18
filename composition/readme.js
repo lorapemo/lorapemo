@@ -1,4 +1,5 @@
 import { desktopIcon } from '../components/desktopIcon.js'
+import { IMAGES } from '../utilities/constants.js'
 import { openWindowOnPageLoad } from '../utilities/openWindowOnPageLoad.js'
 export function readme() {
     const content = `
@@ -78,7 +79,7 @@ export function readme() {
 
     return (`
         ${desktopIcon({
-            img: "https://raw.githubusercontent.com/lorapemo/lorapemo/refs/heads/dev/public/textFile.PNG", 
+            img: IMAGES.TEXT_FILE, 
             title: title, 
             dataWindow: dataWindow, 
             content: content})}

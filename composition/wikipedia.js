@@ -1,5 +1,5 @@
 import { desktopIcon } from '../components/desktopIcon.js'
-import { openWindowOnPageLoad } from '../utilities/openWindowOnPageLoad.js'
+import { IMAGES } from '../utilities/constants.js'
 
 export function wikipedia(parent) {
     const content = `<iframe src="https://wikipedia.com/"></iframe>`
@@ -8,7 +8,7 @@ export function wikipedia(parent) {
     return (
         `
         ${desktopIcon({
-            img: "https://upload.wikimedia.org/wikipedia/en/8/80/Wikipedia-logo-v2.svg",
+            img: IMAGES.WIKIPEDIA,
             title: title,
             dataWindow: `${parent}-wikipedia`,
             content: content,

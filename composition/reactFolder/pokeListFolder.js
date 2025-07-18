@@ -1,6 +1,7 @@
 import { desktopIcon } from "../../components/desktopIcon.js";
 import { pokeListReadme } from "./pokeListFolder/pokeListReadme.js";
 import { pokeList } from "./pokeListFolder/pokeList.js"
+import { IMAGES } from "../../utilities/constants.js";
 
 export function pokeListFolder(){
     const content = `
@@ -11,7 +12,7 @@ export function pokeListFolder(){
     return (
         `
         ${desktopIcon({
-            img: "https://raw.githubusercontent.com/lorapemo/lorapemo/refs/heads/dev/public/reactFolder.png", 
+            img: IMAGES.REACT_FOLDER, 
             title: "PokeList", 
             dataWindow: "poke_List_folder_icon", 
             content: content})}
