@@ -11,7 +11,9 @@ export function pokeList(parent) {
             title: "PokeList", 
             dataWindow: dataWindow, 
             content: content, 
-            isIFrame:true})}
+            isIFrame:true,
+            maximizedByDefault: true
+        })}
         `
     )
 }

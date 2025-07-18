@@ -10,7 +10,9 @@ export function wikipedia(parent) {
             title: "Wikipedia", 
             dataWindow: `${parent}-wikipedia`, 
             content: content, 
-            isIFrame: true})}
+            isIFrame: true,
+            maximizedByDefault: true
+        })}
         `
     )
 }
