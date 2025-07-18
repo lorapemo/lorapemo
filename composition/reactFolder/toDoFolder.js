@@ -10,7 +10,12 @@ export function toDoFolder() {
 
     return (
         `
-        ${desktopIcon("https://raw.githubusercontent.com/lorapemo/lorapemo/refs/heads/dev/public/reactFolder.png", "ToDo", "to_do_folder_icon", content)}
+        ${desktopIcon({
+            img: "https://raw.githubusercontent.com/lorapemo/lorapemo/refs/heads/dev/public/reactFolder.png",
+            title: "ToDo", 
+            dataWindow: "to_do_folder_icon", 
+            content: content
+        })}
         `
     )
 }

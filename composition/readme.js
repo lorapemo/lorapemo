@@ -84,6 +84,10 @@ export function readme() {
                 });
     })
     return (`
-        ${desktopIcon("https://raw.githubusercontent.com/lorapemo/lorapemo/refs/heads/dev/public/textFile.PNG", title, "readme_icon", content)}
+        ${desktopIcon({
+            img: "https://raw.githubusercontent.com/lorapemo/lorapemo/refs/heads/dev/public/textFile.PNG", 
+            title: title, 
+            dataWindow: "readme_icon", 
+            content: content})}
     `);
 }

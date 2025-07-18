@@ -10,7 +10,11 @@ export function pokeListFolder(){
     
     return (
         `
-        ${desktopIcon("https://raw.githubusercontent.com/lorapemo/lorapemo/refs/heads/dev/public/reactFolder.png", "PokeList", "poke_List_folder_icon", content)}
+        ${desktopIcon({
+            img: "https://raw.githubusercontent.com/lorapemo/lorapemo/refs/heads/dev/public/reactFolder.png", 
+            title: "PokeList", 
+            dataWindow: "poke_List_folder_icon", 
+            content: content})}
         `
     )
 }

@@ -5,7 +5,12 @@ export function wikipedia(parent) {
 
     return (
         `
-        ${desktopIcon("https://upload.wikimedia.org/wikipedia/en/8/80/Wikipedia-logo-v2.svg", "Wikipedia", `${parent}-wikipedia`, content, true)}
+        ${desktopIcon({
+            img: "https://upload.wikimedia.org/wikipedia/en/8/80/Wikipedia-logo-v2.svg", 
+            title: "Wikipedia", 
+            dataWindow: `${parent}-wikipedia`, 
+            content: content, 
+            isIFrame: true})}
         `
     )
 }

@@ -10,7 +10,12 @@ export function reactFolder() {
 
     return (
         `
-        ${desktopIcon("https://raw.githubusercontent.com/lorapemo/lorapemo/refs/heads/dev/public/reactFolder.png", "React", "react_folder_icon", content)}
+        ${desktopIcon({
+            img: "https://raw.githubusercontent.com/lorapemo/lorapemo/refs/heads/dev/public/reactFolder.png", 
+            title: "React", 
+            dataWindow: "react_folder_icon", 
+            content: content
+        })}
         `
     )
 }
