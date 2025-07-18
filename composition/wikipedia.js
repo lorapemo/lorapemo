@@ -5,8 +5,6 @@ export function wikipedia(parent) {
     const content = `<iframe src="https://wikipedia.com/"></iframe>`
     const title = "Wikipedia"
 
-    openWindowOnPageLoad({ title: title, dataWindow: "desktop-wikipedia", content: content, maximizedByDefault: true, isIFrame: true })
-
     return (
         `
         ${desktopIcon({
