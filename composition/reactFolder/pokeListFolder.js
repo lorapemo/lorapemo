@@ -1,11 +1,11 @@
 import { desktopIcon } from "../../components/desktopIcon.js";
 import { pokeListReadme } from "./pokeListFolder/pokeListReadme.js";
-import { wikipedia } from "../wikipedia.js";
+import { pokeList } from "./pokeListFolder/pokeList.js"
 
 export function pokeListFolder(){
     const content = `
         ${pokeListReadme()}
-        ${wikipedia("pokeListFolder")}
+        ${pokeList()}
     `
     
     return (

@@ -1,7 +1,7 @@
 import { desktopIcon } from '../components/desktopIcon.js'
 
 export function wikipedia(parent) {
-    const content = `<iframe src="https://wikipedia.com"></iframe>`
+    const content = `<iframe src="https://wikipedia.com/"></iframe>`
 
     return (
         `
