@@ -15,7 +15,9 @@ export function pokeListFolder(){
             img: IMAGES.REACT_FOLDER, 
             title: "PokeList", 
             dataWindow: "poke_List_folder_icon", 
-            content: content})}
+            content: content,
+            isFolder: true
+        })}
         `
     )
 }

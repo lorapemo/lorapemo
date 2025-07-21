@@ -15,7 +15,8 @@ export function toDoFolder() {
             img: IMAGES.REACT_FOLDER,
             title: "ToDo", 
             dataWindow: "to_do_folder_icon", 
-            content: content
+            content: content,
+            isFolder: true
         })}
         `
     )

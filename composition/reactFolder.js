@@ -15,7 +15,8 @@ export function reactFolder() {
             img: IMAGES.REACT_FOLDER, 
             title: "React", 
             dataWindow: "react_folder_icon", 
-            content: content
+            content: content,
+            isFolder: true
         })}
         `
     )

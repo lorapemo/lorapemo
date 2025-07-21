@@ -1,4 +1,4 @@
-function handleContent(title, windowId, content, isIFrame) {
+function handleContent(title, windowId, content, isIFrame, isFolder) {
     var basic_window_html = `
                 <div class="window" id="${windowId}">
                     <div class="window-header">
@@ -11,27 +11,34 @@ function handleContent(title, windowId, content, isIFrame) {
                     </div>
 
                     `
+    if (isFolder) {
+        content = `
+            <div class="folder-window-content">
+                ${content}
+            </div>
+        `
+    }
     if (isIFrame) {
         basic_window_html += `
-            <div id="${windowId}-content" class="window-iframe">${content}</div>
+            <div id="${windowId}-content" class="window-iframe flex flex-column">${content}</div>
             </div>
             `
         return basic_window_html
     }
     basic_window_html += `
-            <div id="${windowId}-content" class="window-content folder-window-content">${content}</div>
+            <div id="${windowId}-content" class="window-content folder-window-content flex flex-column">${content}</div>
             </div>
             `
     return basic_window_html
 }
 
-export function handleWindow({title, content, isIFrame = false, dataWindow, maximizedByDefault = false}) {
+export function handleWindow({ title, content, isIFrame = false, dataWindow, maximizedByDefault = false, isFolder = false }) {
     try {
         windowCounter++
         const windowId = `${dataWindow}-window-${windowCounter}`;
 
         // Create window HTML
-        const windowHtml = handleContent(title, windowId, content, isIFrame)
+        const windowHtml = handleContent(title, windowId, content, isIFrame, isFolder)
 
         // Add to desktop
         $('#web-desktop').append(windowHtml);
